@@ -17,6 +17,8 @@ p {
 
 h2, h3, h4 {
 	padding-left: 3rem;
+	padding-top: 1rem;
+	padding-bottom: 0.5rem;
 }
 
 .article_image {
@@ -24,6 +26,8 @@ h2, h3, h4 {
 	max-height: 400px;
 	max-width: 100%;
 	padding-left: 1rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 
 #container {
@@ -61,5 +65,27 @@ h2, h3, h4 {
 
 .list-item-articles {
 	padding-left: 2rem;
+}
+
+.list-item-in-article {
+	font-size: 1.17rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	padding-left: 4rem;
+}
+
+.name-class, .name-method {
+	color: blue;
+	font-style: italic;
+}
+
+.name-file, .name-folder {
+	color: #d73a49;
+	font-style: italic;
+}
+
+.name-definition {
+	color: #268bd2;
+	font-style: italic;
 }
 

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Highlight code of Prism - CSS, js, init js function -->
+        <!--<link rel="stylesheet" type="text/css" href="../../assets/prism/prism-my_solarized_light.css" />-->
+        <link rel="stylesheet" type="text/css" href="../../assets/prism/prism-my_github.css" />
+        <!--<link rel="stylesheet" type="text/css" href="../../assets/prism/prism-my_tomorrow_night.css" />-->
+        <script src="../../assets/prism/prism-my.js"></script>
+        <!-- CSS Styles -->
+        <link rel="stylesheet" href="../../assets/css/style.css" />
+		<!-- JavaScript for this site -->
+		<script src="../../assets/js/app.js"></script>
+		<title>Система управления списком контактов</title>
+		<!-- https://java-course.ru/begin/contact_01/ -->
+    </head>
+    <body>
+		<div id="container">
+			<div id="content">
+				<h2 class="table-nav-item">Введение в список контактов</h2>
+				<p>&emsp;Чтобы мы могли дальше двигаться не просто рассматривая новое, а со смыслом и практикой, предлагаю начать разработку очень простого приложения, которое позволит нам задействовать описываемые технологии. <br />Чтобы не придумывать что-то очень сложное, я буду делать простой список контактов, который будет иметь возможность делать основные операции (назовём их для дальнейших рассуждений &laquo;бизнес-действие&raquo;):</p>
+				<ol class="list-item-in-article">
+					<li>Просмотр списка контактов</li>
+					<li>Добавление контакта</li>
+					<li>Редактирование контакта</li>
+					<li>Удаление контакта</li>
+				</ol>
+				<p>&emsp;Также предлагаю делать свой вариант - например список машин в автосалоне, список заказов пиццы, список книг. Пусть он будет выглядеть практически так же, как мой, но это будет ваш собственный проект.</p>
+				<p>&emsp;В этой статье мы создадим каркас нашего приложения - основные классы и методы. При изучении нового материала будем расширять эту функциональность. <br />Для начала проетирования воспользуемся нашим набором функций и существительным &laquo;контакт&raquo;. Эти слова на самом деле очень помогают при начальной разработке - вы по сути определяете предметную область и можете выделить какие-то базовые классы и их методы. <br />Естественно, что при наработке дальнейшего опыта и усложнении систем, которые вы будете разрабатывать, набор классов и их функциональность будет увеличиваться, но основные принципы останутся такие же, как и в нашем случае - смотрим описание и выделяем существительные и глаголы. В них основная идея и будет скрываться.</p>
+				<p>&emsp;Достаточно легко можно увидеть класс <span class="name-class">Contact</span>, который будет использоваться как хранилище информации об одном контакте. Также нам потребуется класс, который предоставит нам нужные функции для работы со списком контактов - удаление, добавление, редактирование, получение списка. Назовём его <span class="name-class">ContactManager</span>. Также нам потребуется класс (классы) для хранения контактов в каком-то постоянном хранилище. Т.к. систем хранения у нас будет несколько - для файлов, для базы данных. <br />В нашем случае это не очень выразительно видно, но я очень хочу, чтобы вы уловили разницу между хранением данных в хранилище и действиями по редактированию. Этот момент важен по следующим соображениям:</p>
+				<ol class="list-item-in-article">
+					<li>Функции редактирования могут быть гораздо сложнее обычного сохранения данных в хранилище. <br />Например, добавление контакта может потребовать проверку данных на правильность полей, проверку на наличие такого контакта (причём такая проверка может быть весьма нетривиальной задачей - по имени или по e-mail или ещё как). Также надо принимать во внимание возможность дальнейшего расширения системы. Добавление контакта может потребовать выполнить какие-то дополнительные действия - поиск сведений о контакте в социальных сетях, поиск через Гугл или синхронизацию данных с удалённым хранилищем. В итоге мы однозначно можем сказать, что бизнес-действие нередко включает несколько элементарных действий, среди которых будет и действия с хранилищем.</li>
+					<li>Хранилища могут быть совершенно разными. Это может быть файл - причём в разных форматах: CSV, XML, какой-то текст, бинарное представление (MS Word, MS Excel). Это может быть база данных - причём совершенно разных типов - например SQL и NoSQL. Это может быть та же 1C-Бухгалтерия или сервер MS Exchange. Или IBM Lotus Notes. В общем систем хранения может быть много и надо быть готовым к тому, чтобы перевести ваше приложение на новый вариант с текущего.</li>
+				</ol>
+				<p>&emsp;Суммируя всё вышеизложенное мы будем строить взаимодействие класса <span class="name-class">ContactManager</span> с хранилищами через интерфейс, реализовать который должны все хранилища, которые мы будем создавать.</p>
+				<p>&emsp;Давайте нарисуем упрощённую диаграмму наших классов:</p>
+				<img class="article_image" src="assets/images/ContactProject.png" alt="ContactProject.png" title="ContactProject.png" />
+				<p>&emsp;Как видите, наш класс <span class="name-class">ContactManager</span> взаимодействует с хранилищем не напрямую, а через интерфейс <span class="name-class">ContactDAO</span>. Т.к. все хранилища его реализуют, то нам будет легко менять их фактически &laquo;на лету&raquo;.</p>
+				<h3 class="table-nav-item">Класс <span class="name-class">Contact</span></h3>
+				<p>&emsp;Этот класс не должен вызывать каких-то больших вопросов. Там перечислены нужные поля и для них сделаны сетеры и гетеры. Может вызывать сомнение набор конструкторов - я сделал для всех полей (в случае редактирования) и все поля кроме ИД (<span class="name-class">contactId</span>) - для случая добавления. Мне показалось, что так будет удобно. Переопределение метода <span class="name-method">toString()</span> сделано для удобства вывода информации о контакте.</p>
+				<p>Файл <span class="name-file">Contact.java</span></p>
+				<p>Полный путь к файлу <span class="name-folder">src/edu/javacourse/contact/entity/Contact.java</span></p>
+				<pre class="line-numbers">
+<code class="language-java">package edu.javacourse.contact.entity;
+
+/**
+ * Класс для хранения данных контакта
+ */
+public class Contact {
+	// Идентификатор контакта
+	private Long contactId;
+	// Имя
+	private String firstName;
+	// Фамилия
+	private String lastName;
+	// Телефон
+	private String phone;
+	// email
+	private String email;
+	
+	public Contact() {
+	}
+	
+	public Contact(String firstName, String lastName, String phone, String email) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.phone = phone;
+		this.email = email;
+	}
+	
+	public Contact(Long contactId, String firstName, String lastName, String phone, String email) {
+		this.contactId = contactId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.phone = phone;
+		this.email = email;
+	}
+	
+	public Long getContactId() {
+		return contactId;
+	}
+	
+	public void setContactId(Long contactId) {
+		this.contactId = contactId;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	public String getPhone() {
+		return phone;
+	}
+	
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	@Override
+	public String toString() {
+		return "Contact{" + "contactId=" + contactId + ", firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone + ", email=" + email + '}';
+	}
+}</code></pre>
+				<h3 class="table-nav-item">Класс <span class="name-class">ContactManager</span></h3>
+				<p>&emsp;Здесь тоже особых сложностей нет - в данном случае я просто перечислил те функции, которые мы хотели реализовать. Выглядит это конечно несколько натянуто, т.к. кроме вызовов методов для работы с хранилищем в них ничего нет, но мы уже обсуждали возможность расширения. Единственное, на что надо обратить внимание - мы используем интерфейс <span class="name-class">ContactDAO</span>, а не реальный класс. Почему мы так сделали - я тоже объяснял выше.</p>
+				<p>Файл <span class="name-file">ContactManager.java</span></p>
+				<p>Полный путь к файлу <span class="name-folder">src/edu/javacourse/contact/business/ContactManager.java</span></p>
+				<pre class="line-numbers">
+<code class="language-java">package edu.javacourse.contact.business;
+
+import edu.javacourse.contact.dao.ContactDAO;
+import edu.javacourse.contact.dao.ContactDAOFactory;
+import edu.javacourse.contact.entity.Contact;
+import java.util.List;
+
+/**
+ * Класс для реализации функций над списком контактов
+ */
+public class ContactManager {
+	private ContactDAO dao;
+	
+	public ContactManager() {
+		dao = ContactDAOFactory.getContactDAO();
+	}
+	
+	// Добавление контакта - возвращает ID добавленного контакта
+	public Long addContact(Contact contact) {
+		return dao.addContact(contact);
+	}
+	
+	// Редактирование контакта
+	public void updateContact(Contact contact) {
+		dao.updateContact(contact);
+	}
+	
+	// Удаление контакта по его ID
+	public void deleteContact(Long contactId) {
+		dao.deleteContact(contactId);
+	}
+	
+	// Получение одного контакта по его ID
+	public Contact getContact(Long contactId) {
+		return dao.getContact(contactId);
+	}
+	
+	// Получение списка контактов
+	public List<Contact> findContacts() {
+		return dao.findContacts();
+	}
+}</code></pre>
+				<p>&emsp;Почему мы создаём экземпляр <span class="name-class">ContactDAO</span> с использованием класса <span class="name-class">ContactDAOFactory</span> я объясню чуть позже.</p>
+				<h3 class="table-nav-item">Интерфейс <span class="name-class">ContactDAO</span></h3>
+				<p>&emsp;Прибавочка <span class="name-definition">DAO</span> - это <span class="name-definition">Data Access Object</span> - объект доступа к данным. Для работы с хранилищем любого типа мы создали интерфейс, который определяет контракт, по которому любое хранилище для работы с контактами должно реализовать определённый набор функций. Это позволит нам в дальнейшем заменять реализации хранилища без особых хлопот.</p>
+				<p>Файл <span class="name-file">ContactDAO.java</span></p>
+				<p>Полный путь к файлу <span class="name-folder">src/edu/javacourse/contact/dao/ContactDAO.java</span></p>
+<pre class="line-numbers"><code class="language-java">package edu.javacourse.contact.dao;
+
+import edu.javacourse.contact.entity.Contact;
+import java.util.List;
+
+/**
+ * Интерфейс для определения функций хранилища данных о контактах
+ */
+public interface ContactDAO {
+	// Добавление контакта - возвращает ID добавленного контакта
+	public Long addContact(Contact contact);
+	// Редактирование контакта
+	public void updateContact(Contact contact);
+	// Удаление контакта по его ID
+	public void deleteContact(Long contactId);
+	// Получение контакта по его ID
+	public Contact getContact(Long contactId);
+	// Получение списка контактов
+	public List<Contact> findContacts();
+}</code></pre>
+				<h3 class="table-nav-item">Класс <span class="name-class">ContactDAOFactory</span></h3>
+				<p>&emsp;Идея появления этого класса лежит в плоскости шаблонов проектирования. В данном случае это шаблон <span class="name-definition">AbstractFactory</span>. Попробую ответить на вопрос - а зачем он нужен? <br />Если простыми словами - классы для хранилища могут использоваться во многих местах. Это у нас всё достаточно просто - мы к нему обращаемся только в одном месте - в классе <span class="name-class">ContactManager</span>. Но представим ситуацию, когда хранилище контактов потребуется не в одном классе, а например в 25-ти. Тогда, если мы захотим поменять наше хранилище на другое, то создание хранилища надо будет переопределять в 25-ти местах. Можно запутаться. Класс <span class="name-class">ContactDAOFactory</span> легко решает эту задачу. Создание хранилища происходит исключительно в нём и больше нигде. Это удобно.</p>
+				<p>Файл <span class="name-file">ContactDAOFactory.java</span></p>
+				<p>Полный путь к файлу <span class="name-folder">src/edu/javacourse/contact/dao/ContactDAOFactory.java</span></p>
+<pre class="line-numbers"><code class="language-java">package edu.javacourse.contact.dao;
+
+/**
+ * Фабрика для создания экземпляра ContactDAO
+ */
+public class ContactDAOFactory {
+	public static ContactDAO getContactDAO() {
+		return new ContactSimpleDAO();
+	}
+}</code></pre>
+			<h3 class="table-nav-item">Классы <span class="name-class">ContactSimpleDAO</span> и <span class="name-class">ContactTest</span></h3>
+			<p>&emsp;Классы имеют исключительно утилитарное назначение - мы можем их использовать для проверки системы. <span class="name-class">ContactSimpleDAO</span> реализует интерфейс <span class="name-class">ContactDAO</span> и это даёт нам возможность &laquo;смоделировать&raquo; хранилище. Что же касается класса <span class="name-class">ContactTest</span> - он используется для вызова методов класса <span class="name-class">ContactManager</span> и вывода результатов. Мы можем убедиться, что наша система (пусть пока и очень сырая) работает.</p>
+			<p>Файл <span class="name-file">ContactSimpleDAO.java</span></p>
+			<p>Полный путь к файлу <span class="name-folder">src/edu/javacourse/contact/dao/ContactSimpleDAO.java</span></p>
+<pre class="line-numbers"><code class="language-java">package edu.javacourse.contact.dao;
+
+import edu.javacourse.contact.entity.Contact;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class ContactSinpleDAO implements ContactDAO {
+	private final List<Contact> contacts = new ArrayList<Contact>();
+	
+	@Override
+	public Long addContact(Contact contact) {
+		Long id = generateContactId();
+		contact.setContactId(id);
+		contacts.add(contact);
+		return id;
+	}
+	
+	@Override
+	public void updateContact(Contact contact) {
+		Contact oldContact = getContact(contact.getContactId());
+		if(oldContact != null) {
+			oldContact.setFirstName(contact.getFirstName());
+			oldContact.setLastName(contact.getLastName());
+			oldContact.setPhone(contact.getPhone());
+			oldContact.setEmail(contact.getEmail());
+		}
+	}
+	
+	@Override
+	public void deleteContact(Long contactId) {
+		for(Iterator<Contact> it = contacts.iterator(); it.hasNext();) {
+			Contact cnt = it.next();
+			if(cnt.getContactId().equals(contactId)) {
+				it.remove();
+			}
+		}
+	}
+	
+	@Override
+	public Contact getContact(Long contactId) {
+		for(Contact contact : contacts) {
+			if(contact.getContactId().equals(contactId)) {
+				return contact;
+			}
+		}
+	}
+	
+	@Override
+	public List<Contact> findContacts() {
+		return contacts;
+	}
+	
+	private Long generateContactId() {
+		Long contactId = Math.round(Math.random() * 1000 + System.currentTimeMillis());
+		while(getContact(contactId) != null) {
+			contactId = Math.round(Math.random() * 1000 + System.currentTimeMillis());
+		}
+		return contactId;
+	}
+}</code></pre>
+			</div>
+			<div id="table-of-content">
+				<h2>Содержимое статьи</h2>
+			</div>
+		</div>
+    </body>
+</html>

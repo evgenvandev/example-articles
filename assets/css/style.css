@@ -23,6 +23,7 @@ h2, h3, h4 {
 	margin: 0 auto;
 	max-height: 400px;
 	max-width: 100%;
+	padding-left: 1rem;
 }
 
 #container {
@@ -56,5 +57,9 @@ h2, h3, h4 {
 	position: relative;
 	top: -50px;
 	visibility: hidden;
+}
+
+.list-item-articles {
+	padding-left: 2rem;
 }
 

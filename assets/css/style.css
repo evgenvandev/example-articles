@@ -1,0 +1,60 @@
+/* Resets */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Плавный переход по странице */
+html {
+	scroll-behavior: smooth;
+}
+
+p {
+	font-size: 1.17rem;
+	padding-left: 1rem;
+}
+
+h2, h3, h4 {
+	padding-left: 3rem;
+}
+
+.article_image {
+	margin: 0 auto;
+	max-height: 400px;
+	max-width: 100%;
+}
+
+#container {
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-start;
+}
+
+#content {
+	width: 75vw;
+}
+/*
+#content div {
+	height: 100vh;
+}*/
+
+#table-of-content {
+	width: 25vw;
+	/* these two lines will do the trick */
+	position: sticky;
+	top: 0;
+	padding-left: 1.5rem;
+}
+
+#table-of-content h2 {
+	padding-left: 1rem;
+}
+
+.offset-anchor {
+	display: block;
+	position: relative;
+	top: -50px;
+	visibility: hidden;
+}
+

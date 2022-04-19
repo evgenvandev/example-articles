@@ -11,47 +11,47 @@
         <script src="../../assets/prism/prism-my.js"></script>
         <!-- CSS Styles -->
         <link rel="stylesheet" href="../../assets/css/style.css" />
-		<!-- JavaScript for this site -->
-		<script src="../../assets/js/app.js"></script>
-		<title>Как отобразить пример кода на вашем сайте</title>
-		<!-- https://codersguidebook.com/how-to-build-a-website/display-example-code-on-website -->
+        <!-- JavaScript for this site -->
+        <script src="../../assets/js/app.js"></script>
+        <title>Как отобразить пример кода на вашем сайте</title>
+        <!-- https://codersguidebook.com/how-to-build-a-website/display-example-code-on-website -->
     </head>
     <body>
-		<div id="container">
-			<div id="content">
-				<h2><span class="table-nav-item">Как отобразить пример кода</span> на вашем сайте</h2>
-				<p>&emsp;В этом руководстве вы узнаете, как отображать код в своём блоге/веб-сайте, который читатели могут легко скопировать и вставить. Мы также расскажем, как настроить внешний вид кода и использовать плагины, такие как нумерация строк и выделение строк.</p>
-				<img class="article_image" src="assets/images/display-example-code-on-your-website-using-highlight.png" alt="display-example-code-on-your-website-using-highlight.png" title="display-example-code-on-your-website-using-highlight.png" />
-				<img class="article_image" src="assets/images/display-example-code-on-your-website-using-prism.png" alt="display-example-code-on-your-website-using-prism.png" title="display-example-code-on-your-website-using-prism.png" />
-				<h2>Отобразить код с помощью <i>highlight.js</i></h2>
-				<h3 class="table-nav-item">Использование <i>highlight.js</i> на вашем веб-сайте</h3>
-				<p>&emsp;<a href="https://highlightjs.org/">Highlight.js</a> - это пакет JavaScript, который позволяет вам добавлять пример кода на ваши веб-страницы. Highlight.js - это относительно простая программа для подсветки кода, которая не позволяет вам добавлять номера строк или выделять строки кода (см. <a href="#prism">prism.js</a>); тем не менее, это один из лучших способов понять, как должны отображаться разные языки кода. Highlight.js также поставляется с темами, позволяющими настраивать внешний вид отображаемого кода. Готовые темы включают Android Studio, Github и код Google, поэтому ваш код может эмулировать множество популярных платформ.</p>
-				<p>&emsp;Чтобы добавить highlight.js на свою веб-страницу, посетите <a href="https://highlightjs.org/download/">их веб-сайт</a> и скопируйте их готовые ссылки jsdelivrCSS и JavaScript в элемент head вашего HTML-файла.</p>
-				<pre>
+        <div id="container">
+            <div id="content">
+                <h2><span class="table-nav-item">Как отобразить пример кода</span> на вашем сайте</h2>
+                <p>&emsp;В этом руководстве вы узнаете, как отображать код в своём блоге/веб-сайте, который читатели могут легко скопировать и вставить. Мы также расскажем, как настроить внешний вид кода и использовать плагины, такие как нумерация строк и выделение строк.</p>
+                <img class="article_image" src="assets/images/display-example-code-on-your-website-using-highlight.png" alt="display-example-code-on-your-website-using-highlight.png" title="display-example-code-on-your-website-using-highlight.png" />
+                <img class="article_image" src="assets/images/display-example-code-on-your-website-using-prism.png" alt="display-example-code-on-your-website-using-prism.png" title="display-example-code-on-your-website-using-prism.png" />
+                <h2>Отобразить код с помощью <i>highlight.js</i></h2>
+                <h3 class="table-nav-item">Использование <i>highlight.js</i> на вашем веб-сайте</h3>
+                <p>&emsp;<a href="https://highlightjs.org/">Highlight.js</a> - это пакет JavaScript, который позволяет вам добавлять пример кода на ваши веб-страницы. Highlight.js - это относительно простая программа для подсветки кода, которая не позволяет вам добавлять номера строк или выделять строки кода (см. <a href="#prism">prism.js</a>); тем не менее, это один из лучших способов понять, как должны отображаться разные языки кода. Highlight.js также поставляется с темами, позволяющими настраивать внешний вид отображаемого кода. Готовые темы включают Android Studio, Github и код Google, поэтому ваш код может эмулировать множество популярных платформ.</p>
+                <p>&emsp;Чтобы добавить highlight.js на свою веб-страницу, посетите <a href="https://highlightjs.org/download/">их веб-сайт</a> и скопируйте их готовые ссылки jsdelivrCSS и JavaScript в элемент head вашего HTML-файла.</p>
+                <pre>
 <code class="language-html">&lt;head&gt;
     &lt;!-- other content of the head element goes here --&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/default.min.css&quot;&gt;
     &lt;script src=&quot;//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js&quot;&gt;&lt;/script&gt;
 &lt;/head&gt;</code></pre>
-				<p>&emsp;Обратите внимание, как ссылка на таблицу стилей заканчивается на &ldquo;<i>default.min.css</i>&rdquo;. Вы можете изменить тему своего примера кода, заменив слово &ldquo;default&rdquo; любым другим стилем, показанным в <a href="https://highlightjs.org/static/demo/">этой демонстрации</a>. Если имя темы содержит пробелы, убедитесь, что вы заменили их дефисом. Например, если вы хотите использовать тему <i>Base16/Atelier Estuary</i>, замените <i>default.min.css</i> на <i>base16/atelier-estuary.min.css</i>. После внесения этого изменения элемент head будет выглядеть так:</p>
-				<pre>
+                <p>&emsp;Обратите внимание, как ссылка на таблицу стилей заканчивается на &ldquo;<i>default.min.css</i>&rdquo;. Вы можете изменить тему своего примера кода, заменив слово &ldquo;default&rdquo; любым другим стилем, показанным в <a href="https://highlightjs.org/static/demo/">этой демонстрации</a>. Если имя темы содержит пробелы, убедитесь, что вы заменили их дефисом. Например, если вы хотите использовать тему <i>Base16/Atelier Estuary</i>, замените <i>default.min.css</i> на <i>base16/atelier-estuary.min.css</i>. После внесения этого изменения элемент head будет выглядеть так:</p>
+                <pre>
 <code class="language-html">&lt;head&gt;
     &lt;!-- other content of the head element goes here --&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/base16/atelier-estuary.min.css&quot;&gt;
     &lt;script src=&quot;//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js&quot;&gt;&lt;/script&gt;
 &lt;/head&gt;</code></pre>
-				<p>&emsp;После того, как вы добавили ссылки на таблицу стилей CSS и файлы JavaScript, вам нужно написать ещё одну строку кода в элементе head вашей HTML-страницы. Добавьте этот скрипт, чтобы активировать <i>highlight.js</i> и настроить его для работы с вашим примером кода:</p>
-				<pre><code class="language-html">&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;</code></pre>
-				<p>В целом элемент head должен выглядеть так:</p>
-				<pre><code class="language-html">&lt;head&gt;
+                <p>&emsp;После того, как вы добавили ссылки на таблицу стилей CSS и файлы JavaScript, вам нужно написать ещё одну строку кода в элементе head вашей HTML-страницы. Добавьте этот скрипт, чтобы активировать <i>highlight.js</i> и настроить его для работы с вашим примером кода:</p>
+                <pre><code class="language-html">&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;</code></pre>
+                <p>В целом элемент head должен выглядеть так:</p>
+                <pre><code class="language-html">&lt;head&gt;
     &lt;!-- other content of the head element goes here --&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/default.min.css&quot;&gt;
     &lt;script src=&quot;//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js&quot;&gt;&lt;/script&gt;
     &lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;
 &lt;/head&gt;</code></pre>
-				<h3 class="table-nav-item">Добавление примера кода на вашу веб-страницу используя <i>highlight.js</i></h3>
-				<p>&emsp;Как только ваша веб-страница будет оснащена для использования <i>highlight.js</i>, вы можете добавить пример кода, который вы хотите показать своим читателям. Просто напишите пример кода в выбранном вами месте в элементе <i>body</i> вашей HTML-страницы и заключите его в открывающий &lt;pre&gt;&lt;code&gt; и закрывающий &lt;/code&gt;&lt;/pre&gt; теги. Если вам интересно, тег <i>pre</i> относится к предварительно отформатированному тексту, а тег <i>code</i> указывает на раздел кода.</p>
-				<p>&emsp;Преимущество использования <i>highlight.js</i> заключается в том, что он может адаптировать свой подход к подсветке для языка программирования, который вы хотите отобразить. Чтобы сообщить <i>highlight.js</i>, какой язык программирования вы используете, добавьте текст &ldquo;language-&rdquo;, за которым следует название языка в качестве класса внутри открывающего тега &lt;code&gt;. Например, вы можете отобразить HTML-код на своей веб-странице следующим образом <i>&lt;code class=&quot;language-html&quot;&gt;</i>:</p>
+                <h3 class="table-nav-item">Добавление примера кода на вашу веб-страницу используя <i>highlight.js</i></h3>
+                <p>&emsp;Как только ваша веб-страница будет оснащена для использования <i>highlight.js</i>, вы можете добавить пример кода, который вы хотите показать своим читателям. Просто напишите пример кода в выбранном вами месте в элементе <i>body</i> вашей HTML-страницы и заключите его в открывающий &lt;pre&gt;&lt;code&gt; и закрывающий &lt;/code&gt;&lt;/pre&gt; теги. Если вам интересно, тег <i>pre</i> относится к предварительно отформатированному тексту, а тег <i>code</i> указывает на раздел кода.</p>
+                <p>&emsp;Преимущество использования <i>highlight.js</i> заключается в том, что он может адаптировать свой подход к подсветке для языка программирования, который вы хотите отобразить. Чтобы сообщить <i>highlight.js</i>, какой язык программирования вы используете, добавьте текст &ldquo;language-&rdquo;, за которым следует название языка в качестве класса внутри открывающего тега &lt;code&gt;. Например, вы можете отобразить HTML-код на своей веб-странице следующим образом <i>&lt;code class=&quot;language-html&quot;&gt;</i>:</p>
 <pre><code class="language-html">&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;
 &lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en-GB&quot;&gt;
@@ -67,26 +67,26 @@
 &lt;/body&gt;
 &lt;/html&gt;
 &lt;/code&gt;&lt;/pre&gt;</code></pre>
-				<p>Полный список поддерживаемых языков и соответствующих классов можно найти <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md">здесь</a>.</p>
-				<h2>Отображение кода с помощью <i>prism.js</i> и его плагинов</h2>
-				<img class="article_image" src="assets/images/prism-code-highlighting.png" alt="prism-code-highlighting.png" title="prism-code-highlighting.png" />
-				<h3 class="table-nav-item">Использование <i>prism.js</i> на вашей веб-странице</h3>
-				<p>&emsp;Альтернативным средством подсветки синтаксиса для <i>highlight.js</i> является <i>prism.js</i>. У <i>prism.js</i> меньше доступных тем, чем у <i>highlight.js</i>; тем не менее, он предлагает множество полезных плагинов, которые помогут сделать код вашего примера интерактивным. Чтобы использовать <i>prism.js</i>, вы должны сначала посетить <a href="https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript">их веб-сайт</a> и загрузить файл javascript и файл CSS. На странице загрузки <i>prism.js</i> вы найдете множество вариантов настройки файлов javascript и CSS. Количество вариантов может быть ошеломляющим, но есть только пара опций, которые вам нужно изменить, поэтому это не так сложно, как может показаться.</p>
-				<p>&emsp;Вы можете оставить уровень сжатия на &laquo;Minified version&raquo; и ядро ​​на &laquo;Core&raquo;, но вы можете изменить тему. Вы можете проверить, как различные темы изменяют внешний вид кода примера внизу страницы. После того, как вы выбрали свою любимую тему, перейдите в раздел &laquo;Языки&raquo;. Выбора по умолчанию (разметка, CSS, C-подобный и JavaScript) должно быть достаточно; тем не менее, не стесняйтесь отмечать другие языки из списка, если вы видите другие, которые хотите отобразить. Наконец, мы подошли к плагинам. Вскоре мы обсудим некоторые из самых популярных плагинов, но пока можно оставить этот раздел пустым.</p>
-				<p>&emsp;После того, как вы выбрали свои предпочтения, вы можете загрузить файлы JS и CSS, используя кнопки внизу страницы. Храните загрузки в папке, где хранятся файлы вашего веб-сайта, и используйте имена файлов <i>prism.js</i> и <i>prism.css</i> соответственно.</p>
-				<p>&emsp;Чтобы использовать <i>prism.js</i> на веб-странице, вам необходимо импортировать файлы CSS и JavaScript в элемент заголовка HTML-документа. В целом элемент head HTML-файла должен выглядеть так:</p>
+                <p>Полный список поддерживаемых языков и соответствующих классов можно найти <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md">здесь</a>.</p>
+                <h2>Отображение кода с помощью <i>prism.js</i> и его плагинов</h2>
+                <img class="article_image" src="assets/images/prism-code-highlighting.png" alt="prism-code-highlighting.png" title="prism-code-highlighting.png" />
+                <h3 class="table-nav-item">Использование <i>prism.js</i> на вашей веб-странице</h3>
+                <p>&emsp;Альтернативным средством подсветки синтаксиса для <i>highlight.js</i> является <i>prism.js</i>. У <i>prism.js</i> меньше доступных тем, чем у <i>highlight.js</i>; тем не менее, он предлагает множество полезных плагинов, которые помогут сделать код вашего примера интерактивным. Чтобы использовать <i>prism.js</i>, вы должны сначала посетить <a href="https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript">их веб-сайт</a> и загрузить файл javascript и файл CSS. На странице загрузки <i>prism.js</i> вы найдете множество вариантов настройки файлов javascript и CSS. Количество вариантов может быть ошеломляющим, но есть только пара опций, которые вам нужно изменить, поэтому это не так сложно, как может показаться.</p>
+                <p>&emsp;Вы можете оставить уровень сжатия на &laquo;Minified version&raquo; и ядро ​​на &laquo;Core&raquo;, но вы можете изменить тему. Вы можете проверить, как различные темы изменяют внешний вид кода примера внизу страницы. После того, как вы выбрали свою любимую тему, перейдите в раздел &laquo;Языки&raquo;. Выбора по умолчанию (разметка, CSS, C-подобный и JavaScript) должно быть достаточно; тем не менее, не стесняйтесь отмечать другие языки из списка, если вы видите другие, которые хотите отобразить. Наконец, мы подошли к плагинам. Вскоре мы обсудим некоторые из самых популярных плагинов, но пока можно оставить этот раздел пустым.</p>
+                <p>&emsp;После того, как вы выбрали свои предпочтения, вы можете загрузить файлы JS и CSS, используя кнопки внизу страницы. Храните загрузки в папке, где хранятся файлы вашего веб-сайта, и используйте имена файлов <i>prism.js</i> и <i>prism.css</i> соответственно.</p>
+                <p>&emsp;Чтобы использовать <i>prism.js</i> на веб-странице, вам необходимо импортировать файлы CSS и JavaScript в элемент заголовка HTML-документа. В целом элемент head HTML-файла должен выглядеть так:</p>
 <pre><code class="language-html">&lt;head&gt;
     &lt;!-- other content of the head element goes here --&gt;
     &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;prism.css&quot;&gt;
     &lt;script src=&quot;prism.js&quot;&gt;&lt;/script&gt;
 &lt;/head&gt;</code></pre>
-			<p>&emsp;Теперь, когда элемент head настроен, вы готовы добавить пример кода на свою веб-страницу.</p>
-			<h3 class="table-nav-item">Добавление примера кода на вашу веб-страницу используя <i>prism.js</i></h3>
-			<p>&emsp;</p>
-			</div>
-			<div id="table-of-content">
-				<h2>Содержимое статьи</h2>
-			</div>
-		</div>
+            <p>&emsp;Теперь, когда элемент head настроен, вы готовы добавить пример кода на свою веб-страницу.</p>
+            <h3 class="table-nav-item">Добавление примера кода на вашу веб-страницу используя <i>prism.js</i></h3>
+            <p>&emsp;</p>
+            </div>
+            <div id="table-of-content">
+                <h2>Содержимое статьи</h2>
+            </div>
+        </div>
     </body>
 </html>

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class ContactSinpleDAO implements ContactDAO {
+public class ContactSimpleDAO implements ContactDAO {
 	private final List<Contact> contacts = new ArrayList<Contact>();
 	
 	@Override
@@ -44,6 +44,7 @@ public class ContactSinpleDAO implements ContactDAO {
 				return contact;
 			}
 		}
+		return null;
 	}
 	
 	@Override

@@ -23,7 +23,7 @@ h2, h3, h4 {
 
 .article_image {
 	margin: 0 auto;
-	max-height: 400px;
+	/*max-height: 400px;*/
 	max-width: 100%;
 	padding-left: 1rem;
 	padding-top: 1rem;

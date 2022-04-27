@@ -25,15 +25,15 @@
                 <img class="article_image" src="assets/images/display-example-code-on-your-website-using-prism.png" alt="display-example-code-on-your-website-using-prism.png" title="display-example-code-on-your-website-using-prism.png" />
                 <h2>Отобразить код с помощью <i>highlight.js</i></h2>
                 <h3 class="table-nav-item">Использование <i>highlight.js</i> на вашем веб-сайте</h3>
-                <p>&emsp;<a href="https://highlightjs.org/">Highlight.js</a> - это пакет JavaScript, который позволяет вам добавлять пример кода на ваши веб-страницы. Highlight.js - это относительно простая программа для подсветки кода, которая не позволяет вам добавлять номера строк или выделять строки кода (см. <a href="#prism">prism.js</a>); тем не менее, это один из лучших способов понять, как должны отображаться разные языки кода. Highlight.js также поставляется с темами, позволяющими настраивать внешний вид отображаемого кода. Готовые темы включают Android Studio, Github и код Google, поэтому ваш код может эмулировать множество популярных платформ.</p>
-                <p>&emsp;Чтобы добавить highlight.js на свою веб-страницу, посетите <a href="https://highlightjs.org/download/">их веб-сайт</a> и скопируйте их готовые ссылки jsdelivrCSS и JavaScript в элемент head вашего HTML-файла.</p>
+                <p>&emsp;<a href="https://highlightjs.org/" target="_blank">Highlight.js</a> - это пакет JavaScript, который позволяет вам добавлять пример кода на ваши веб-страницы. Highlight.js - это относительно простая программа для подсветки кода, которая не позволяет вам добавлять номера строк или выделять строки кода (см. <i>prism.js</i>); тем не менее, это один из лучших способов понять, как должны отображаться разные языки кода. Highlight.js также поставляется с темами, позволяющими настраивать внешний вид отображаемого кода. Готовые темы включают Android Studio, Github и код Google, поэтому ваш код может эмулировать множество популярных платформ.</p>
+                <p>&emsp;Чтобы добавить highlight.js на свою веб-страницу, посетите <a href="https://highlightjs.org/download/" target="_blank">их веб-сайт</a> и скопируйте их готовые ссылки jsdelivrCSS и JavaScript в элемент head вашего HTML-файла.</p>
                 <pre>
 <code class="language-html">&lt;head&gt;
     &lt;!-- other content of the head element goes here --&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/default.min.css&quot;&gt;
     &lt;script src=&quot;//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js&quot;&gt;&lt;/script&gt;
 &lt;/head&gt;</code></pre>
-                <p>&emsp;Обратите внимание, как ссылка на таблицу стилей заканчивается на &ldquo;<i>default.min.css</i>&rdquo;. Вы можете изменить тему своего примера кода, заменив слово &ldquo;default&rdquo; любым другим стилем, показанным в <a href="https://highlightjs.org/static/demo/">этой демонстрации</a>. Если имя темы содержит пробелы, убедитесь, что вы заменили их дефисом. Например, если вы хотите использовать тему <i>Base16/Atelier Estuary</i>, замените <i>default.min.css</i> на <i>base16/atelier-estuary.min.css</i>. После внесения этого изменения элемент head будет выглядеть так:</p>
+                <p>&emsp;Обратите внимание, как ссылка на таблицу стилей заканчивается на &ldquo;<i>default.min.css</i>&rdquo;. Вы можете изменить тему своего примера кода, заменив слово &ldquo;default&rdquo; любым другим стилем, показанным в <a href="https://highlightjs.org/static/demo/" target="_blank">этой демонстрации</a>. Если имя темы содержит пробелы, убедитесь, что вы заменили их дефисом. Например, если вы хотите использовать тему <i>Base16/Atelier Estuary</i>, замените <i>default.min.css</i> на <i>base16/atelier-estuary.min.css</i>. После внесения этого изменения элемент head будет выглядеть так:</p>
                 <pre>
 <code class="language-html">&lt;head&gt;
     &lt;!-- other content of the head element goes here --&gt;
@@ -67,11 +67,13 @@
 &lt;/body&gt;
 &lt;/html&gt;
 &lt;/code&gt;&lt;/pre&gt;</code></pre>
-                <p>Полный список поддерживаемых языков и соответствующих классов можно найти <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md">здесь</a>.</p>
+                <p>Полный список поддерживаемых языков и соответствующих классов можно найти <a href="https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md" target="_blank">здесь</a>.</p>
+				<p class="noteimportant"><span class="table-nav-item"><b>Преобразование спецсимволов в сущности.</b></span> <br />Вы можете заметить, что при загрузке веб-страницы код вашего примера невидим. Вероятно, это связано с тем, что веб-браузер читает код вашего примера как HTML-код, а не как текст. Чтобы решить эту проблему, вы должны преобразовать некоторые символы в вашем примере кода (например: &lt;, &gt;, &amp;, &quot;, &ldquo;, &rdquo;) в сущности. Сущность - это короткая последовательность букв и символов, представляющих пунктуацию. <br />Например: <br />&amp;lt;&emsp;является сущностью для символа&emsp;&lt;&emsp;(знак &quot;меньше&quot;); <br />&amp;gt;&emsp;является сущностью для символа&emsp;&gt;&emsp;(знак &quot;больше&quot;); <br />&amp;amp;&emsp;является сущностью для символа&emsp;&amp;&emsp;(амперсанд); <br />&amp;quot;&emsp;является сущностью для символа&emsp;&quot;&emsp;(двойная кавычка); <br />&amp;ldquo;&emsp;является сущностью для символа&emsp;&ldquo;&emsp;(левая двойная кавычка); <br />&amp;rdquo;&emsp;является сущностью для символа&emsp;&rdquo;&emsp;(правая двойная кавычка). <br />Хотя вы можете пройтись по коду примера и преобразовать каждый символ препинания в сущность один за другим, гораздо более быстрый способ скопировать и вставить код примера в <a href="https://www.freeformatter.com/html-escape.html#ad-output" target="_blank">инструмент экранирования HTML (freeformatter.com)</a>. После экранирования кода примера вы можете скопировать его обратно в HTML-файл между открывающим и закрывающим тегами <i>&lt;pre&gt;&lt;code&gt;код примера&lt;/code&gt;&lt;/pre&gt;</i>, теперь код должен отображаться правильно.
+				</p>
                 <h2>Отображение кода с помощью <i>prism.js</i> и его плагинов</h2>
                 <img class="article_image" src="assets/images/prism-code-highlighting.png" alt="prism-code-highlighting.png" title="prism-code-highlighting.png" />
                 <h3 class="table-nav-item">Использование <i>prism.js</i> на вашей веб-странице</h3>
-                <p>&emsp;Альтернативным средством подсветки синтаксиса для <i>highlight.js</i> является <i>prism.js</i>. У <i>prism.js</i> меньше доступных тем, чем у <i>highlight.js</i>; тем не менее, он предлагает множество полезных плагинов, которые помогут сделать код вашего примера интерактивным. Чтобы использовать <i>prism.js</i>, вы должны сначала посетить <a href="https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript">их веб-сайт</a> и загрузить файл javascript и файл CSS. На странице загрузки <i>prism.js</i> вы найдете множество вариантов настройки файлов javascript и CSS. Количество вариантов может быть ошеломляющим, но есть только пара опций, которые вам нужно изменить, поэтому это не так сложно, как может показаться.</p>
+                <p>&emsp;Альтернативным средством подсветки синтаксиса для <i>highlight.js</i> является <i>prism.js</i>. У <i>prism.js</i> меньше доступных тем, чем у <i>highlight.js</i>; тем не менее, он предлагает множество полезных плагинов, которые помогут сделать код вашего примера интерактивным. Чтобы использовать <i>prism.js</i>, вы должны сначала посетить <a href="https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript" target="_blank">их веб-сайт</a> и загрузить файл javascript и файл CSS. На странице загрузки <i>prism.js</i> вы найдете множество вариантов настройки файлов javascript и CSS. Количество вариантов может быть ошеломляющим, но есть только пара опций, которые вам нужно изменить, поэтому это не так сложно, как может показаться.</p>
                 <p>&emsp;Вы можете оставить уровень сжатия на &laquo;Minified version&raquo; и ядро ​​на &laquo;Core&raquo;, но вы можете изменить тему. Вы можете проверить, как различные темы изменяют внешний вид кода примера внизу страницы. После того, как вы выбрали свою любимую тему, перейдите в раздел &laquo;Языки&raquo;. Выбора по умолчанию (разметка, CSS, C-подобный и JavaScript) должно быть достаточно; тем не менее, не стесняйтесь отмечать другие языки из списка, если вы видите другие, которые хотите отобразить. Наконец, мы подошли к плагинам. Вскоре мы обсудим некоторые из самых популярных плагинов, но пока можно оставить этот раздел пустым.</p>
                 <p>&emsp;После того, как вы выбрали свои предпочтения, вы можете загрузить файлы JS и CSS, используя кнопки внизу страницы. Храните загрузки в папке, где хранятся файлы вашего веб-сайта, и используйте имена файлов <i>prism.js</i> и <i>prism.css</i> соответственно.</p>
                 <p>&emsp;Чтобы использовать <i>prism.js</i> на веб-странице, вам необходимо импортировать файлы CSS и JavaScript в элемент заголовка HTML-документа. В целом элемент head HTML-файла должен выглядеть так:</p>
@@ -82,7 +84,92 @@
 &lt;/head&gt;</code></pre>
             <p>&emsp;Теперь, когда элемент head настроен, вы готовы добавить пример кода на свою веб-страницу.</p>
             <h3 class="table-nav-item">Добавление примера кода на вашу веб-страницу используя <i>prism.js</i></h3>
-            <p>&emsp;</p>
+            <p>&emsp;Процесс отображения примера кода с использованием <i>prism.js</i> очень похож на <i>highlight.js</i>. Просто введите код примера между открывающим тегом <i>&lt;pre&gt;&lt;code class=&quot;language-YOUR-LANGUAGE-HERE&quot;&gt;</i> и закрывающим тегом <i>&lt;/code&gt;&lt;/pre&gt;</i>. Замените часть YOUR-LANGUAGE-HERE класса, назначенного открывающему тегу кода, именем языка, который вы хотите отобразить. Чтобы просмотреть полный список языков, поддерживаемых Prism, <a href="https://prismjs.com/index.html#supported-languages" target="_blank">щёлкните здесь</a>. Обратите внимание, что вы также должны были выбрать язык кода, отображаемый в настройках, при загрузке файлов Prism - .js (JavaScript) и .css (CSS)</a>. Помните, что если код вашего примера не отображается должным образом, вам может потребоваться экранировать некоторые символы, чтобы убедиться, что он читается как текст, а не как код.</p>
+<pre><code class="language-html">&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en-GB&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;Home&lt;/title&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;main.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;My nature and wildlife blog&lt;/h1&gt;
+    &lt;img src=&quot;tree.jpg&quot; alt=&quot;Tree&quot; class=&quot;photo&quot;/&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;/code&gt;&lt;/pre&gt;</code></pre>
+			<p>&emsp;И это всё! При условии, что вы правильно импортировали файлы <i>Prism - .js (JavaScript)</i> и <i>.css (CSS)</i> в файл HTML, вы сможете успешно отобразить пример кода на своём веб-сайте. В оставшейся части этого руководства будут рассмотрены некоторые плагины, которые вы можете выбрать при загрузке файлов <i>Prism - .js (JavaScript)</i> и <i>.css (CSS)</i>.</p>
+			<h3 class="table-nav-item">Плагин номеров строк для <i>prism.js</i></h3>
+			<p>&emsp;Плагин <i>Line Numbers</i> позволяет отображать номера строк с кодом вашего примера. Номера строк не включаются, если читатель копирует и вставляет код.</p>
+			<img class="article_image" src="assets/images/prism-line-numbers-plugin.png" alt="prism-line-numbers-plugin.png" title="prism-line-numbers-plugin.png" />
+			<p>&emsp;Чтобы внедрить плагин <i>Line Numbers</i>, убедитесь, что он выбран при загрузке <a href="https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript" target="_blank">исходных файлов</a>. Затем номера строк можно применить к вашему примеру кода, добавив класс <i>&apos;line-numbers&apos;</i> к открывающему тегу <i>&lt;pre&gt;</i> следующим образом:</p>
+<pre><code class="language-html">&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en-GB&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;Home&lt;/title&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;main.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;My nature and wildlife blog&lt;/h1&gt;
+    &lt;img src=&quot;tree.jpg&quot; alt=&quot;Tree&quot; class=&quot;photo&quot;/&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;/code&gt;&lt;/pre&gt;</code></pre>
+			<h3 class="table-nav-item">Плагин выделения строк для <i>prism.js</i></h3>
+			<p>&emsp;Плагин <i>Line Highlight</i> - это хороший способ привлечь внимание к определённым строкам кода вашего примера.</p>
+			<img class="article_image" src="assets/images/prism-highlight-plugin.png" alt="prism-highlight-plugin.png" title="prism-highlight-plugin.png" />
+			<p>&emsp;Чтобы реализовать плагин <i>Line Highlight</i>, сначала убедитесь, что он выбран при загрузке <a href="https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript" target="_blank">исходных файлов</a>. Затем вы можете выделить определённые строки кода, добавив атрибут строки данных в открывающий тег <i>&lt;pre&gt;</i>. Чтобы выделить одну строку кода, установите для атрибута строки данных только номер этой строки, например, <i>data-line=&quot;4&quot;</i>. Диапазон строк может быть выделен следующим образом: <i>data-line=&quot;2-6&quot;</i> и комбинация отдельных строк и диапазонов может быть выделена следующим образом: <i>data-line=&quot;2, 5-10, 14&quot;</i>.</p>
+<pre><code class="language-html">&lt;pre data-line=&quot;5, 11-12&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en-GB&quot;&gt;
+&lt;head&gt;
+	&lt;title&gt;Home&lt;/title&gt;
+	&lt;meta charset=&quot;utf-8&quot;&gt;
+	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+	&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;main.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;h1&gt;My nature and wildlife blog&lt;/h1&gt;
+	&lt;img src=&quot;tree.jpg&quot; alt=&quot;Tree&quot; class=&quot;photo&quot;/&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;/code&gt;&lt;/pre&gt;</code></pre>
+			<h3 class="table-nav-item">Плагин кнопки &quot;Копировать в буфер обмена&quot; для <i>prism.js</i></h3>
+			<p>&emsp;<i>Prism.js</i> предлагает плагин кнопки &quot;Копировать в буфер обмена&quot;, который добавляет кнопку в код вашего примера и позволяет пользователям копировать отображаемый код одним щелчком мыши.</p>
+			<img class="article_image" src="assets/images/prism-code-highlight-copy-clipboard.png" alt="prism-code-highlight-copy-clipboard.png" title="prism-code-highlight-copy-clipboard.png" />
+			<p>&emsp;Если вы выбрали плагин кнопки &quot;Копировать в буфер обмена&quot; при загрузке файла <i>prism.js</i>, он будет автоматически применяться ко всему отображаемому коду. Больше ничего делать не нужно. Однако вы можете настроить кнопку. Например, у кнопки есть три состояния:</p>
+			<ul class="list-item-in-article">
+				<li><i>data-prismjs-copy</i> - состояние покоя по умолчанию;</li>
+				<li><i>data-prismjs-copy-error</i> - кнопка была нажата, но не удалось скопировать текст в буфер обмена пользователя;</li>
+				<li><i>data-prismjs-copy-success</i> - кнопка была нажата и текст успешно скопирован в буфер обмена.</li>
+			</ul>
+			<p>&emsp;Вы можете изменить сообщение, отображаемое кнопкой в каждом состоянии, сославшись на соответствующее свойство в открывающем теге кода, в атрибуте строки данных. Например, мы могли бы создать кнопку копирования, которая отображает текст &quot;Скопируйте меня&quot; в состоянии покоя и &quot;Меня скопировали!&quot; в состоянии успеха, написав следующий код:</p>
+<pre><code class="language-html" data-prismjs-copy="Скопируйте меня" data-prismjs-copy-success="Меня скопировали!">&lt;pre&gt;&lt;code class=&quot;language-html&quot;
+    data-prismjs-copy=&quot;Сopy me&quot;
+    data-prismjs-copy-success=&quot;I've been copied!&quot; &gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en-GB&quot;&gt;
+&lt;head&gt;
+	&lt;title&gt;Home&lt;/title&gt;
+	&lt;meta charset=&quot;utf-8&quot;&gt;
+	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+	&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;main.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;h1&gt;My nature and wildlife blog&lt;/h1&gt;
+	&lt;img src=&quot;tree.jpg&quot; alt=&quot;Tree&quot; class=&quot;photo&quot;/&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;/code&gt;&lt;/pre&gt;</code></pre>
+			<p>&emsp;Вы также можете стилизовать кнопку копирования. Для этого просто измените класс кнопки копирования в буфер обмена в вашей таблице стилей <i>main.css</i>. Например, вы можете изменить курсор пользователя на символ указателя, а не на стрелку при наведении курсора на кнопку, написав следующий код <i>CSS</i>:</p>
+<pre><code class="language-css">.copy-to-clipboard-button:hover {
+    cursor: pointer;
+}</code></pre>
             </div>
             <div id="table-of-content">
                 <h2>Содержимое статьи</h2>

@@ -56,6 +56,8 @@ h2, h3, h4 {
 	padding-left: 1rem;
 }
 
+/* Класс стиля для ссылки <a></a>, которая добавляется в JavaScript файле.
+Ссылка <a></a> нужна для отступа сверху при переходе по ссылке. */
 .offset-anchor {
 	display: block;
 	position: relative;
@@ -63,10 +65,12 @@ h2, h3, h4 {
 	visibility: hidden;
 }
 
+/* Класс стиля для списка статей. */
 .list-item-articles {
 	padding-left: 2rem;
 }
 
+/* Класс стиля для списка в статье */
 .list-item-in-article {
 	font-size: 1.17rem;
 	margin-top: 0.5rem;
@@ -74,18 +78,78 @@ h2, h3, h4 {
 	padding-left: 4rem;
 }
 
+/* Класс стиля для названия класса, названия метода. */
 .name-class, .name-method {
 	color: blue;
 	font-style: italic;
 }
 
+/* Класс стиля для названия файла, названия папки. */
 .name-file, .name-folder {
 	color: #d73a49;
 	font-style: italic;
 }
 
+/* Класс стиля для названия определения. */
 .name-definition {
 	color: #268bd2;
 	font-style: italic;
+}
+
+/* Класс стиля для предупреждения */
+/*.warning {
+	border-radius: 15px;
+	border: 2px solid #d1d1e8;
+	margin-left: 1rem;
+	padding-left: 1rem;
+	background-color: #fcf0a3;
+}*/
+
+/* Класс стиля для совета */
+.notetip {
+	background-color: #dfd;
+	background-image: url(../images/tip.png);
+	margin: 1rem;
+	width: 98%;
+	min-height: 40px;
+	text-align: justify;
+	vertical-align: middle;
+	border-collapse: collapse;
+	padding: 15px 20px 15px 80px;
+	background-position: 20px 50%;
+	background-repeat: no-repeat;
+	border-radius: 20px;
+}
+
+/* Стиль класса для классического замечания */
+.noteclassic {
+	background-color: #eef;
+	background-image: url(../images/note.png);
+	margin: 1rem;
+	width: 98%;
+	min-height: 40px;
+	text-align: justify;
+	vertical-align: middle;
+	border-collapse: collapse;
+	padding: 15px 20px 15px 80px;
+	background-position: 20px 50%;
+	background-repeat: no-repeat;
+	border-radius: 20px;
+}
+
+/* Стиль класса для важного замечания */
+.noteimportant {
+	background-color: #ffc;
+	background-image: url(../images/important.png);
+	margin: 1rem;
+	width: 98%;
+	min-height: 40px;
+	text-align: justify;
+	vertical-align: middle;
+	border-collapse: collapse;
+	padding: 15px 20px 15px 80px;
+	background-position: 20px 50%;
+	background-repeat: no-repeat;
+	border-radius: 20px;
 }
 
